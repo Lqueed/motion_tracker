@@ -1,6 +1,6 @@
 #include <Servo.h>
 
-int servoPin = 5;
+int servoPin = 5; // def arduino servo pin
 Servo Servo1;
 
 void setup() {
@@ -12,5 +12,5 @@ void setup() {
 void loop() {
     int inByte = Serial.parseInt();
     Servo1.write(inByte);
-    Serial.println(inByte); 
+    Serial.println(inByte); // debug - sends back received value
 }
