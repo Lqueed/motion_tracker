@@ -2,11 +2,11 @@ import cv2
 from time import sleep
 import serial
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('/dev/ttyUSB0', 9600) # define serial port for arduino
 
 face_cascade_db = cv2.CascadeClassifier(cv2.data.haarcascades+"haarcascade_frontalface_default.xml")
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) # read from web camera
 
 while True:
     success, img = cap.read()
@@ -18,9 +18,9 @@ while True:
         valueStr = str(180 - value)
         print(value)
         ser.write(valueStr.encode())
-        sleep(0.08)
+        sleep(0.08) # minimal possible delay for arduino
         
-    cv2.imshow('rez', img)
+    cv2.imshow('rez', img) # show output image for debug
     if cv2.waitKey(1) & 0xff == ord('q'):
         break
 
