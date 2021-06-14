@@ -10,13 +10,7 @@ void setup() {
 }
 
 void loop() {
-  
-//  if (Serial.available()) {
-
     int inByte = Serial.parseInt();
     Servo1.write(inByte);
     Serial.println(inByte); 
-    
-//    delay(1000);
-//  }
 }
